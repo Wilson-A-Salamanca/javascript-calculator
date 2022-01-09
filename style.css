@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(161, 161, 161);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  background-color: rgba(54, 50, 50, 0.329);
+}
+
+.buttons {
+  background-color: rgb(3, 0, 22);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 30px;
+  border-radius: 23px;
+  width: 50%;
+}
+
+.btn {
+  font-size:20px;
+  background-color: rgb(255, 255, 255);
+}
+
+.container__main--font:hover {
+  background-color: rgb(5, 5, 5);
+  color: rgb(255, 255, 255);
+}
+
+.span {
+  grid-column: span 2;
+}

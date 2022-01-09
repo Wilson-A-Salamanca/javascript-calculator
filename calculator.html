@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body >
+  <!--titulo de mi calculadora -->
+  <header class="title">
+    <h1>Calculadora</h1>
+  </header>
+   <!-- calculadora-->
+  <main>
+    <div class="container"> <!--block-->
+      <p id="result"></p>
+      <!--botones para el funsionamiento de mi calculadora -->
+      <div class="buttons"> <!--block-->
+        <button class="btn span" id="clear">C</button>
+        <button class="btn__op" id="porcent">%</button>
+        <button class="btn__op" id="divide">/</button>
+        <button class="btn__num" id="one">1</button>
+        <button class="btn__num" id="two">2</button>
+        <button class="btn__num" id="three">3</button>
+        <button class="btn__op" id="multiply">*</button>
+        <button class="btn__num" id="four">4</button>
+        <button class="btn__num" id="five">5</button>
+        <button class="btn__num" id="six">6</button>
+        <button class="btn__op" id="rest">-</button>
+        <button class="btn__num" id="seven">7</button>
+        <button class="btn__num" id="eight">8</button>
+        <button class="btn__num" id="nine">9</button>
+        <button class="btn__op" id="add">+</button>
+        <button class="btn__num span" id="zero">0</button>
+        <button class="btn"id="point">.</button>
+        <button class="btn" id="equal">=</button>
+      </div>
+    </div>
+  </main>
+  <script src="app2.js"></script>
+  <!--<script src="app.js"></script>-->
+</body>
+</html>
+
+
+<!--juego uno 
+
+Algoritmo JUEGO_1_A_1000
+	//primero asignamos una variable que tenga el numero diez(que son los intentos)
+	int<- 10
+	//luego necesitamos un numero a buscar, volvemos a asignar otra varible con una funcionalidad azar
+	num_encontrar <- azar(1000) +1 // el mas uno es para que empieze desde 1 y no desde 0 
+	// ahora ponemos un mensaje para empezar el juego y ponemos una variable que va a ser el numero que ingrese el jugador
+	Escribir "adivina el numero entre el 1 al 1000 " 
+	Leer num_ingresar 
+	//entonces creamos un bucle donde se indicara que el bucle pare cuando el numero ingreado sea igual que el numero a encontrar 
+	Mientras num_encontrar <> num_ingresar y int > 1 Hacer
+		//ahora creamos un si-entonces para que se de un mensaje dependiendo del numero que digite el jugador
+		si num_ingresar < num_encontrar Entonces
+			Escribir "tu numero es muy bajo"
+		SiNo
+			Escribir "tu numero es muy alto"
+		FinSi
+		// Entonces le restamos a los intentos uno por cada bucle que pase
+		int<- int-1
+		// ahora le decimos cuantos intentos le quedan al participante
+		Escribir "le quedan " , int ," intentos"
+		//y aqui volvemos a llamar la variable de ingreso de los numeros, para que que en cada bucle pida otro numero a ingresar
+		Leer num_ingresar
+	FinMientras
+	//aqui creamos otro si-entonces donde indicamos que si el numero a ingresar y el numero a encontrar son iguales nos diga que encontro el numero y en encuantos 
+	//intentos lo pudo allar y sino pues que no pudo y le dice cual era el numero
+	si num_encontrar= num_ingresar Entonces
+		Escribir "usted encontro el numero en ",11-int , " intentos y gano!"
+	SiNo
+		Escribir "usted no encontro el numero, el numero era = ", num_encontrar 
+	FinSi
+FinAlgoritmo
+
+
+<!--juego dos
+
+Algoritmo JUEGO_QUIEN_LLEGUE_A_TREINTA
+	// primero definimos dos variables como enteros 
+	// (una nos va a indicar aleatoriamente quien empieza el juego y la otra guardara los valores que vallan sumando los participantes)
+	Definir  a,c como entero
+	// aqui cogemos una de las variables y utlilizamos la funcion azar para que escoga que participante empieza la partida aleatoriamente
+	// el +1 es para que empiece desde 1 y no desde 0 
+	c<- azar(2) + 1
+	// aqui decimos quien empieza el juego
+	Escribir "el participante " ,c ," empieza el juego"
+	// ahora creamos un bucle con la condicion de a < 30 que nos dice que, cuando uno de los participantes llegue a 30, se detiene el juego y gana  
+	Mientras a < 30 Hacer
+		// aqui cada vuelta del bucle dira quien es el que debe poner el numero 
+		Escribir "participante " , c , " digite un numero del 1 al 3"
+		// aqui el participante que empiece digita el numero 
+		Leer  n 
+		// entonces creamos un condiciones de si_entonces para que indique que la variable n solo pueda acceptar valores del 1 al 3
+		// y si no cumple esa condicion le indicaremos que el numero es incorrecto
+		si n > 0 y n < 4  Entonces
+			// aqui creamos un si-entonces anidado para que, dependiendo de la condicion nos diga cuantos puntos tienen acumulados los participante
+			si c=1 Entonces
+				// aqui guarda los valores sumados de cada participante
+				a = a + n
+				si a >= 30 Entonces
+					Escribir "el participante 1 a acumulado 30 puntos o mas y a ganado"
+				SiNo
+					Escribir "el participante 1 tiene acumulado ",a," puntos"
+				FinSi
+				//y aqui indicamos que c = 2 para que, cuando aga otra vez el bucle se dirija hacia la otra condicion
+				// que seria que el segundo participante le toca 
+				c = 2
+			SiNo
+				// aqui guarda los valores sumados de cada participante 
+				a = a + n 
+				si a >= 30  Entonces
+					Escribir "el participante 2 a acumulado 30 puntos o mas y a ganado"
+				SiNo
+					
+				Escribir "el participante 2 tiene acumulado ",a, " puntos"
+				FinSi
+				// y aqui se indica que c = 1 para que sea el turno de participante 1
+				c = 1
+			finSI
+		SiNo
+			Escribir "numero incorrecto"
+		FinSi
+	Fin Mientras
+
+	
+FinAlgoritmo
+
+
+<!--juego 3 
+
+Algoritmo JUEGO_DEL_NIM
+	Definir r1,r2,p Como entero
+	r1<- azar(100) + 1 
+	r2<- azar(100) + 1 
+	p<- azar(2) + 1
+	Escribir "en el recipiente 1 hay " , r1 , " palillos"
+	Escribir "en el recipiente 2 hay " , r2 , " palillos"
+	Escribir "el participante " , p , " empieza"
+	Mientras r1> 0 o r2 > 0 Hacer
+		Escribir "participante ", p ," elija de que recipiente va a sacar palillos"
+		leer e
+		si e < 3 y e > 0 Entonces
+			si e = 1 Entonces
+				e=r1
+				escribir "usted escojio el recipiente 1"
+			SiNo
+				e=r2
+				escribir "usted escojio el recipiente 2"
+			FinSi
+		SiNo
+			e = e
+			Escribir "numero incorrecto y pierdes turno"
+		FinSi
+		si e = r1  Entonces
+			Escribir "participante ", p , " ponga el numero de palillos que quiera sacar del recipiente " 
+			leer n
+			r1 = r1 - n
+			Escribir "usted saco " ,n, " palillos del recipiente 1, al recipiente 1 le quedan ", r1 , " palillos"
+		SiNo
+			si e = r2 Entonces
+			Escribir "participante ", p , " ponga el numero de palillos que quiera sacar del recipiente " 
+			leer n
+			r2 = r2 - n 
+			Escribir "usted saco " ,n, " palillos del recipiente 2, al recipiente 2 le quedan " ,r2 , " palillos"
+			FinSi
+		FinSi
+		si p = 1 Entonces
+			si r1 = 0 y r2 = 0 Entonces
+				Escribir "el participante 1 gano"
+			FinSi
+			p=2
+		SiNo
+			si r1 = 0 y r2 =0 Entonces
+				Escribir "el participante 2 gano"
+			FinSi
+			p=1
+		FinSi
+	Fin Mientras
+FinAlgoritmo
+-->
