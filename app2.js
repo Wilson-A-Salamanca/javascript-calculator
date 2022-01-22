@@ -1,40 +1,46 @@
-let num1;
-let num2;
+let num1 = "";
+let num2 = "";
 let operation;
 
 /*answer space*/
-let result = document.getElementById("result");
+const result = document.getElementById("result");
 
 /*numbers */
-let buttons = document.querySelectorAll(".btn__num");
+const buttons = document.querySelectorAll(".btn__num");
 /*events of the numbers */
 buttons.forEach(i => i.addEventListener("click" , (e) =>{
-  num1 = e.target.innerHTML;
-  result.textContent = result.textContent + num1;
+  result.textContent = result.textContent + e.target.innerHTML
+  if(!!operation){
+    num2 = parseFloat(num2 + e.target.innerHTML);
+  } else {
+    num1 = parseFloat(num1 + e.target.innerHTML);
+  }
 }));
 
 
 /*operators*/
-let operators = document.querySelectorAll(".btn__op");
+const operators = document.querySelectorAll(".btn__op");
 /*events of operators */
 operators.forEach(op => op.addEventListener("click" , (e) =>{
-  operation = e.target.innerHTML;
+  if (!!operation) {
+    return;
+  } else {
+    operation = e.target.innerHTML;
+  }
   result.textContent += operation;
-  clean();
 }));
 
 
 /*buttons of clear and equal*/
-let clear = document.getElementById("clear");
-let equal = document.getElementById("equal");
+const clear = document.getElementById("clear");
+const equal = document.getElementById("equal");
 
 clear.addEventListener("click" , () =>{
   clean();
 });
 
 equal.addEventListener("click" , () => {
-  num2 = result.textContent;
-  solve();
+  solve(num1 , num2);
 });
 /*functions*/
 /*clean, solve(operators), reset */
@@ -46,29 +52,29 @@ function clean(){
 function reset(){
   num1 = "";
   num2 = "";
+  operation = "";
   result.textContent = "";
 }
 
-function solve(){
+function solve(number1 , number2){
   let res ;
-  console.log(num1);
-  console.log(num2);
   switch(operation){
     case "+":
-    res = num1 + num2;
+    res = number1 + number2;
     break;
     case "-":
-    res = num1 - num2;
+    res = number1 - number2;
     break;
     case "*":
-    res = num1 * num2;
+    res = number1 * number2;
     break;
     case "/":
-    res = num1 / num2;
+    res = number1 / number2;
     break;
     case "%":
-    res = num1 * num2 / 100;
+    res = number1 * number2 / 100;
     break;
   };
+  reset()
   result.textContent = res;
 }
